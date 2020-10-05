@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="col-lg-2 col-md-8 col-8 ml-auto">
+    <button class="btn btn-primary btn-round" (click)="createPage()">Create Segment</button>
+  </div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">ต้องการลบกลุ่มนี้ ?</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>ยืนยันการลบ</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">ยืนยัน</button>
+  </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="card card-user">
+      <div class="col-md-12 text-right">
+        <button class="btn btn-sm btn-outline-danger btn-round btn-icon">
+          <i class="nc-icon nc-simple-remove" (click)="open(content)"></i>
+        </button>
+      </div>
+      <div class="card-body">
+        <p class="description text-left" style="font-size: large; font-weight: 600">Segment Name</p>
+        <p class="description text-left">Segment Code</p>
+        <p class="description text-left">Status : Running</p>
+
+        <div class="text-left">
+          <button class="btn btn-sm btn-outline-warning btn-icon" data-toggle="tooltip" title="Execute Segment">
+            <i class="nc-icon nc-spaceship"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-primary btn-icon"><i class="nc-icon nc-settings-gear-65"></i></button>
+          <button class="btn btn-sm btn-outline-info btn-icon"><i class="nc-icon nc-align-center"></i></button>
+        </div>
+        <br />
+        <p class="description text-center" style="font-size: 35px">
+          25,415
+          <i class="nc-icon nc-single-02" style="font-size: 20px; color: teal"></i>
+        </p>
+        <p class="description text-center" style="font-size: 0.6rem">อัพเดตล่าสุดเมื่อ 06-07-2020 08:03:18</p>
+      </div>
+      <hr />
+
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-6 text-left">Line</div>
+          <div class="col-6 text-right">100%</div>
+        </div>
+        <div class="progress" style="height: 12px">
+          <div
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+
+        <br />
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-md-3">
+    <div class="card card-user">
+      <div class="col-md-12 text-right">
+        <button class="btn btn-sm btn-outline-primary btn-round btn-icon"><i class="nc-icon nc-simple-remove"></i></button>
+      </div>
+      <div class="card-body">
+        <p class="description text-left" style="font-size: large; font-weight: 600;">
+          Segment Name
+        </p>
+        <p class="description text-left">
+          Segment Code
+        </p>
+        <p class="description text-left">
+          Status : Running
+        </p>
+
+        <div class="text-left">
+          <button class="btn btn-sm btn-outline-warning btn-icon"><i class="nc-icon nc-button-play"></i></button>
+          <button class="btn btn-sm btn-outline-primary btn-icon"><i class="nc-icon nc-settings-gear-65"></i></button>
+          <button class="btn btn-sm btn-outline-info btn-icon"><i class="nc-icon nc-align-center"></i></button>
+        </div>
+        <br />
+        <p class="description text-center" style="font-size: 35px;">
+          -
+          <i class="nc-icon nc-single-02" style="font-size: 20px; color: teal;"></i>
+        </p>
+        <p class="description text-center" style="font-size: 0.6rem;">อัพเดตล่าสุดเมื่อ 06-07-2020 08:03:18</p>
+      </div>
+      <hr />
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-6 text-left">
+            Line
+          </div>
+          <div class="col-6 text-right">
+            100%
+          </div>
+        </div>
+        <div class="progress" style="height: 12px;">
+          <div
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: 25%;"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div> -->
+</div>

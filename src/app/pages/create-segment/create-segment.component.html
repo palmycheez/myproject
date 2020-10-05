@@ -1,0 +1,380 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#00c2cb" type="square-jelly-box" [fullScreen]="true"
+  ><p style="color: white">Loading...</p></ngx-spinner
+>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-user">
+      <div class="image">
+        <img src="assets/img/damir-bosnjak.jpg" alt="..." />
+      </div>
+      <div class="card-body">
+        <div class="author" style="text-align: left">
+          <h4 class="title">Details</h4>
+          <!-- <img class="avatar border-gray" src="assets/img/mike.jpg" alt="..." /> -->
+          <p class="title">Code : {{ content[0].key }}</p>
+          <p class="title">Name : {{ content[1].key }}</p>
+          <!-- <p class="description">Name : {{ content[1].key }}</p> -->
+          <p class="title">
+            เพศ :
+            <label *ngFor="let item of segmentGroup.value.genders; let i = index">
+              {{ item.gender === 'M' ? 'ชาย' : item.gender === 'F' ? 'หญิง' : 'ไม่ระบุ' }} &nbsp; ,</label
+            >
+          </p>
+          <p class="title">
+            Status :
+            <label *ngFor="let item of segmentGroup.value.status; let i = index">
+              {{ item.status === 'M' ? 'สมรส' : item.status === 'S' ? 'โสด' : 'ไม่ระบุ' }} &nbsp; ,</label
+            >
+          </p>
+          <p class="title">
+            Age : <label>{{ segmentGroup.value.ageBegin }} > {{ segmentGroup.value.ageEnd }}</label>
+          </p>
+
+          <p class="title">
+            Province :
+            <label *ngFor="let item of segmentGroup.value.provinces; let i = index"> {{ item.province_name }} ,</label>
+          </p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class="button-container">
+          <div class="row">
+            <div class="col-12 ml-auto">
+              <small>
+                ** ตรวจสอบข้อมูลให้ถูกต้องก่อนบันทึก **
+                <br />
+                <!-- <small>Files</small> -->
+              </small>
+            </div>
+            <!-- <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+              <h5>
+                2GB
+                <br />
+                <small>Used</small>
+              </h5>
+            </div>
+            <div class="col-lg-3 mr-auto">
+              <h5>
+                24,6$
+                <br />
+                <small>Spent</small>
+              </h5>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Team Members</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled team-members">
+          <li>
+            <div class="row">
+              <div class="col-md-2 col-2">
+                <div class="avatar">
+                  <img src="assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive" />
+                </div>
+              </div>
+              <div class="col-md-7 col-7">
+                DJ Khaled
+                <br />
+                <span class="text-muted">
+                  <small>Offline</small>
+                </span>
+              </div>
+              <div class="col-md-3 col-3 text-right">
+                <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-md-2 col-2">
+                <div class="avatar">
+                  <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive" />
+                </div>
+              </div>
+              <div class="col-md-7 col-7">
+                Creative Tim
+                <br />
+                <span class="text-success">
+                  <small>Available</small>
+                </span>
+              </div>
+              <div class="col-md-3 col-3 text-right">
+                <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-md-2 col-2">
+                <div class="avatar">
+                  <img src="assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive" />
+                </div>
+              </div>
+              <div class="col-ms-7 col-7">
+                Flume
+                <br />
+                <span class="text-danger">
+                  <small>Busy</small>
+                </span>
+              </div>
+              <div class="col-md-3 col-3 text-right">
+                <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+  </div>
+  <div class="col-md-8" [formGroup]="segmentGroup">
+    <div class="card card-user">
+      <div class="card-body">
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+          <li [ngbNavItem]="1">
+            <a ngbNavLink>Personal</a>
+            <ng-template ngbNavContent>
+              <br />
+
+              <div class="row">
+                <div class="col-md-4 pr-1">
+                  <div class="form-group">
+                    <label>Segment Code * </label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      class="form-control"
+                      placeholder="Segment Code"
+                      [(ngModel)]="content[0].key"
+                      name="code"
+                      value=""
+                      formControlName="segmentCode"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-8 pl-1">
+                  <div class="form-group">
+                    <label>Segment Name *</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Segment Name"
+                      [(ngModel)]="content[1].key"
+                      name="name"
+                      value=""
+                      formControlName="segmentName"
+                    />
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-12 pr-1">
+                  <div class="form-group">
+                    <strong><p>Gender</p></strong>
+                  </div>
+                  <div class="form-check-inline" *ngIf="gender">
+                    <label class="form-check-label" *ngFor="let g of gender" for="{{ g + '1' }}">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="{{ g + '1' }}"
+                        name="{{ g + '1' }}"
+                        [checked]="false"
+                        (change)="chkBoxGender($event.target.checked, g)"
+                      />
+                      {{ g === 'M' ? 'ชาย' : g === 'F' ? 'หญิง' : 'ไม่ระบุ' }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-12 pr-1">
+                  <div class="form-group">
+                    <strong><p>Status</p></strong>
+                  </div>
+                  <div class="form-check-inline" *ngIf="status">
+                    <label class="form-check-label" *ngFor="let s of status" for="{{ s }}">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="{{ s }}"
+                        name="{{ s }}"
+                        [checked]="false"
+                        (change)="chkBoxStatus($event.target.checked, s)"
+                      />
+                      {{ s === 'S' ? 'โสด' : s === 'O' ? 'ไม่ระบุ' : 'สมรส' }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-4 pr-1">
+                  <div class="form-group">
+                    <strong><p>Age</p></strong>
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" placeholder="เริ่มต้น" value="0" formControlName="ageBegin" />
+                  </div>
+                </div>
+                <div class="col-md-4 pl-1">
+                  <div class="form-group">
+                    <strong><p>Age</p></strong>
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" placeholder="สิ้นสุด" value="100" formControlName="ageEnd" />
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <a ngbNavLink>Region</a>
+            <ng-template ngbNavContent>
+              <br />
+              <p class="title">จังหวัดที่ซื้อ</p>
+              <label>สามารถเลือกได้มากกว่า 1 จังหวัด</label>
+              <br />
+              <br />
+
+              <div class="row">
+                <div class="col-md-10 pr-1">
+                  <ng-multiselect-dropdown
+                    [placeholder]="'Select province'"
+                    [settings]="dropdownSettingsProvince"
+                    [data]="provinces"
+                    (onSelect)="onItemSelectProvince($event)"
+                    (onSelectAll)="onItemSelectProvince($event)"
+                    (onDeSelect)="onDeSelectProvince($event)"
+                    (onDeSelectAll)="onDeSelectProvince($event)"
+                    formControlName="provinces"
+                  >
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+              <div></div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="3">
+            <a ngbNavLink>Bought Performance</a>
+            <ng-template ngbNavContent>
+              <br />
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>คิดย้อนหลัง (วัน)</label>
+                    <input type="number" class="form-control" placeholder="กรอกจำนวนวัน" value="" formControlName="buyDay" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-1">
+                  <div class="form-group">
+                    <label>ยอดซื้อต่ำสุด</label>
+                    <input type="number" class="form-control" placeholder="เริ่มต้น" value="" formControlName="buyBegin" />
+                  </div>
+                </div>
+                <div class="col-md-6 px-1">
+                  <div class="form-group">
+                    <label>ยอดซื้อสูงสุด</label>
+                    <input type="number" class="form-control" placeholder="สิ้นสุด" value="" formControlName="buyEnd" />
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>About Me</label>
+                    <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
+                  </div>
+                </div>
+              </div> -->
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="4">
+            <a ngbNavLink>Brands</a>
+            <ng-template ngbNavContent>
+              <br />
+              <p class="title">กำหนดแบรนด์</p>
+              <label>สามารถเลือกได้มากกว่า 1 แบรนด์</label>
+              <br />
+              <br />
+
+              <div class="row">
+                <div class="col-md-10 pr-1">
+                  <ng-multiselect-dropdown
+                    [placeholder]="'Select brand'"
+                    [settings]="dropdownSettingsBrand"
+                    [data]="brands"
+                    (onSelect)="onItemSelectBrand($event)"
+                    (onSelectAll)="onItemSelectBrand($event)"
+                    (onDeSelect)="onDeSelectBrand($event)"
+                    (onDeSelectAll)="onDeSelectBrand($event)"
+                    formControlName="brands"
+                  >
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="5">
+            <a ngbNavLink>Stores</a>
+            <ng-template ngbNavContent>
+              <br />
+              <p class="title">กำหนดร้านค้า</p>
+              <label>สามารถเลือกได้มากกว่า 1 ร้านค้า</label>
+              <br />
+              <br />
+
+              <div class="row">
+                <div class="col-md-10 pr-1">
+                  <ng-multiselect-dropdown
+                    [placeholder]="'Select store'"
+                    [settings]="dropdownSettingsCustgroup"
+                    [data]="custGroups"
+                    (onSelect)="onItemSelectCustgroup($event)"
+                    (onSelectAll)="onItemSelectCustgroup($event)"
+                    (onDeSelect)="onDeSelectCustgroup($event)"
+                    (onDeSelectAll)="onDeSelectCustgroup($event)"
+                    formControlName="custGroups"
+                  >
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+              <div></div>
+            </ng-template>
+          </li>
+          <!-- <li [ngbNavItem]="6">
+            <a ngbNavLink>Ship No</a>
+            <ng-template ngbNavContent>
+              <p>Sed commodo, leo at suscipit dictum, quam est por</p>
+            </ng-template>
+          </li> -->
+        </ul>
+
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+        <!-- <pre>Active: {{ active }}</pre> -->
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="row">
+        <div class="update ml-auto mr-auto">
+          <button type="submit" class="btn btn-primary btn-round" (click)="onSubmit()">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </form> -->
+</div>
+
+<pre>{{ segmentGroup?.value | json }}</pre>

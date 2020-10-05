@@ -1,0 +1,51 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#00c2cb" type="square-jelly-box" [fullScreen]="true"
+  ><p style="color: white">Loading...</p></ngx-spinner
+><br /><br /><br /><br /><br /><br />
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="card card-user" style="box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22)">
+      <div class="image">
+        <img src="assets/img/signin.png" alt="..." />
+      </div>
+      <div class="card-body" [formGroup]="loginForm">
+        <div class="row justify-content-center">
+          <div class="col-md-8 pr-1">
+            <div class="form-group">
+              <label>Username * </label>
+              <input class="form-control" type="text" class="form-control" formControlName="username" />
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-8 pr-1">
+            <div class="form-group">
+              <label>Password * </label>
+              <input class="form-control" type="password" class="form-control" formControlName="password" />
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round" [disabled]="!loginForm.valid" (click)="checkLogin(loginForm)">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr />
+        <div class="button-container">
+          <div class="row">
+            <div class="col-12 ml-auto">
+              <small> ©2020 All Rights Reserved. I.C.C. International Public Company Limited. <br /> </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <pre>{{ loginForm?.value | json }}</pre> -->
