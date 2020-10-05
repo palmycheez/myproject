@@ -18,9 +18,12 @@ import { FixedPluginModule } from './shared/fixedplugin/fixedplugin.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { UploadExcelComponent } from './pages/upload-excel/upload-excel.component';
+
+
 
 @NgModule({
-  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, CreateSegmentComponent, HomeComponent],
+  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, CreateSegmentComponent, HomeComponent, UploadExcelComponent],
   imports: [
     NgxSpinnerModule,
     NgMultiSelectDropDownModule.forRoot(),

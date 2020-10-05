@@ -1,0 +1,18 @@
+<hello name="{{ name }}"></hello>
+<p>
+	Start editing to see some magic happen :)
+</p>
+
+<input type="file" (change)="onFileChange($event)" />
+
+<div id="output"></div>
+<br>
+
+
+<div class="">
+	<button class="btn btn-primary" (click)="submit()">Upload</button>
+</div>
+
+<div *ngIf="willDownload">
+	<a id="download"> Download JSON File </a>
+</div>

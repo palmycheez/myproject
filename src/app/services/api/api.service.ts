@@ -158,4 +158,13 @@ export class ApiService {
     const url = `${this.baseUrl}:7009/hisher/segment/check-segmentCode?segmentCode=${param.segmentCode}`;
     return this.http.get(url).toPromise();
   }
+
+  insertMembers(body) {
+    const url = `https://webapidev.icc.co.th:7009/hisher/segment/insertMemberSpecial`;
+    const header = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this.http.post(url, body, header).toPromise();
+
+  }
 }

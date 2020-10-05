@@ -34,6 +34,20 @@
             Province :
             <label *ngFor="let item of segmentGroup.value.provinces; let i = index"> {{ item.province_name }} ,</label>
           </p>
+          <p class="title">
+            Day : <label>{{ segmentGroup.value.buyDay }} </label>
+          </p>
+          <p class="title">
+            Purchase amount : <label>{{ segmentGroup.value.buyBegin | number }} > {{ segmentGroup.value.buyEnd | number }}</label>
+          </p>
+          <p class="title">
+            Brand :
+            <label *ngFor="let item of segmentGroup.value.brands; let i = index"> {{ item.brand_name }} ,</label>
+          </p>
+          <p class="title">
+            Store :
+            <label *ngFor="let item of segmentGroup.value.custGroups; let i = index"> {{ item.cust_group_name }} ,</label>
+          </p>
         </div>
       </div>
       <div class="card-footer">
